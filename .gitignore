@@ -1,0 +1,7 @@
+node_modules
+dist
+coverage
+globalConfig.json
+.env
+package-lock.json
+.eslintcache
