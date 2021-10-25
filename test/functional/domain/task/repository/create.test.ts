@@ -5,7 +5,7 @@ import { TaskState } from '../../../../../src/domain/v1/task/model';
 import { TaskCreateDTO } from '../../../../../src/domain/v1/task/dto/task-create-dto';
 import { create } from '../../../../../src/domain/v1/task/repository/create';
 
-describe('UserRepository.findOne', () => {
+describe('TaskRepository.create', () => {
   const task: TaskCreateDTO = {
     description: 'Create a test application',
     title: 'Test app',
@@ -22,7 +22,7 @@ describe('UserRepository.findOne', () => {
     col.deleteMany({});
   });
 
-  it('should insert new farm', async () => {
+  it('should insert new task', async () => {
     const r = await create(task);
 
     const taskSaved = await col.findOne({ _id: r.id });

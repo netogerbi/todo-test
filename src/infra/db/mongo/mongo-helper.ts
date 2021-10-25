@@ -43,7 +43,7 @@ export const MongoHelper = {
     return { ...rest, id: _id };
   },
 
-  mapCollection: (collection: any[]): any[] => {
+  mapCollection: <T>(collection: any[]): T[] => {
     return collection.map(c => MongoHelper.map(c));
   },
 };
