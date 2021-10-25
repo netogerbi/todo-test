@@ -4,7 +4,7 @@ import { MongoClient, Collection } from 'mongodb';
 import logger from '../../../config/logger';
 import { AppError } from '../../../utils';
 
-export type COLLECTIONS = 'user';
+export type COLLECTIONS = 'user' | 'tasks';
 
 export const MongoHelper = {
   client: null as unknown as MongoClient,
