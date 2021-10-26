@@ -3,9 +3,7 @@ import { Collection } from 'mongodb';
 
 describe('User.loginController', () => {
   let col: Collection;
-
   beforeEach(async () => {
-    // MongoHelper.connect(env.mongodbUri);
     col = await MongoHelper.getCollection('user');
     await col.insertOne({
       email: 'test@test.com',

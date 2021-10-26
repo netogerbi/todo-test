@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { findTaskByUser } from '../../../../domain/v1/task/services/find-task-by-user-service';
 
-export const getTasksByUser = async (
+export const getTasksByUserController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
