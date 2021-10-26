@@ -4,6 +4,6 @@ import * as controller from '../controllers/task';
 
 const routes = Router();
 
-routes.post('/', taskCreateValidator, controller.insertOneFarmController);
+routes.post('/', taskCreateValidator, controller.createTaskController);
 
 export default routes;

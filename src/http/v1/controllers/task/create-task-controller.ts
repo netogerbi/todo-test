@@ -3,7 +3,7 @@ import { createTaskService } from '../../../../domain/v1/task/services';
 import { AppError } from '../../../../utils';
 import logger from '../../../../config/logger';
 
-export const insertOneFarmController = async (
+export const createTaskController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
@@ -11,13 +11,13 @@ export const insertOneFarmController = async (
     const { title, description } = req.body;
     const userId = req.user;
 
-    const farmInserted = await createTaskService({
+    const taskInserted = await createTaskService({
       title,
       description,
       userId,
     });
 
-    return res.status(201).send(farmInserted);
+    return res.status(201).send(taskInserted);
   } catch (err) {
     logger.error(err);
     const error = err as AppError;
