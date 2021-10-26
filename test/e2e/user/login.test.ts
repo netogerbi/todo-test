@@ -43,20 +43,12 @@ describe('User.loginController', () => {
       password: '',
     });
 
-    expect(r.status).toBe(422);
-    expect(r.body).toEqual([
-      {
-        value: 'test.com',
-        msg: 'Email is not valid',
-        param: 'email',
-        location: 'body',
-      },
-      {
-        value: '',
-        msg: 'Message cannot be blank',
-        param: 'password',
-        location: 'body',
-      },
-    ]);
+    expect(r.status).toBe(400);
+    expect(r.body).toEqual({
+      message: [
+        { field: 'email', message: 'Email is not valid' },
+        { field: 'password', message: 'Message cannot be blank' },
+      ],
+    });
   });
 });

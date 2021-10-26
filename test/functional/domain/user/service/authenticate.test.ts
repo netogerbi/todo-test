@@ -4,7 +4,7 @@ import { MongoHelper } from '../../../../../src/infra/db';
 import env from '../../../../../src/config/env';
 import { authenticate } from '../../../../../src/domain/v1/user/service';
 import { Collection } from 'mongodb';
-import { AppError } from 'src/utils';
+import { CustomError } from 'src/utils/errors/interfaces/common-error';
 
 describe('UserService.autheticate', () => {
   let col: Collection;
@@ -33,14 +33,14 @@ describe('UserService.autheticate', () => {
   it('should return null with user not found', async () => {
     col.deleteMany({});
 
-    let r: AppError;
+    let r: CustomError;
     try {
       await authenticate({ email: 'test@test.com', password: 'test' });
     } catch (err) {
-      r = err as AppError;
+      r = err as CustomError;
     }
 
     expect(r!.message).toMatch(/Unauthorized/i);
-    expect(r!.status).toBe(401);
+    expect(r!.statusCode).toBe(401);
   });
 });
