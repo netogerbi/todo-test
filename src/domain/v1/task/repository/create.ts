@@ -1,5 +1,5 @@
 import { MongoHelper } from '../../../../infra/db';
-import { TaskCreateDTO } from '../dto/task-create-dto';
+import { TaskCreateDTO } from '../dto';
 import { Task, TaskState } from '../model';
 
 export const create = async (newTask: TaskCreateDTO): Promise<Task> => {

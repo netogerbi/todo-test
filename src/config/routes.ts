@@ -1,7 +1,7 @@
 import { Express, Request, Response } from 'express';
-import { authController } from '../http/controllers/user/auth';
+import { authController } from '../http/v1/controllers/user/auth';
 import { authenticatedMiddleware } from '../middleware';
-import v1Routes from '../http/routes/v1/v1-routes';
+import v1Routes from '../http/v1/routes';
 
 export default (app: Express): void => {
   app.get('/', async (_: Request, res: Response) => {
