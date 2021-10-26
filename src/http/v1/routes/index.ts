@@ -3,6 +3,6 @@ import taskRoutes from './task-routes';
 
 const routes = Router();
 
-routes.use(taskRoutes);
+routes.use('/tasks', taskRoutes);
 
 export default routes;
