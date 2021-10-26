@@ -7,6 +7,8 @@ It use Husky to run scripts before commit and push to repository.
 
 It uses docker to run the application inside a container and docker-compose to run al lservices needed in a development environment.
 
+The erros are handled in a centralized midleware so it's not necessary to use try catchs.
+
 ### Tech Stack
 
 - NodeJS:14.18.1 or latest
@@ -17,10 +19,11 @@ It uses docker to run the application inside a container and docker-compose to r
 
 ### Project todos
 
-- [ ] connect in db inside docker
+- [x] connect in db inside docker
 - [ ] create missing endpoints
 - [ ] pre-push husky configure
 - [ ] .github/workflows
+- [ ] set commit-lint to standardize commit msgs
 
 ### Instalation
 
