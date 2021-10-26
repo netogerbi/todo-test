@@ -36,6 +36,8 @@ To run app inside docker just run the following:
 docker-compose up --build -d
 ```
 
+### Running Automated Tests
+
 to run tests inside docker container
 
 ```bash
