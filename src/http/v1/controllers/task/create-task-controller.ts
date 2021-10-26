@@ -6,7 +6,7 @@ export const createTaskController = async (
   res: Response
 ): Promise<Response> => {
   const { title, description } = req.body;
-  const userId = req.user;
+  const userId = req.user.id;
 
   const taskInserted = await createTaskService({
     title,

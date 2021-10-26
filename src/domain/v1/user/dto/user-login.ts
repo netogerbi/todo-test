@@ -1,4 +1,3 @@
-export interface UserLoginDTO {
-  email: string;
-  password: string;
-}
+import { User } from '../model';
+
+export type UserLoginDTO = Pick<User, 'email' | 'password'>;
