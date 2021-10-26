@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { Collection } from 'mongodb';
 import { MongoHelper } from '../../../../../src/infra/db';
-import { findByUser } from '../../../../../src/domain/v1/task/repository/find-by-user';
 import { TaskCreateDTO } from '../../../../../src/domain/v1/task/dto/task-create-dto';
+import { findTaskByUser } from '../../../../../src/domain/v1/task/services/find-task-by-user-service';
 
-describe('TaskRepository.findOne', () => {
+describe('TaskServices.FindByUserService', () => {
   let col: Collection;
 
   const userId = 'asdasd';
@@ -37,7 +37,7 @@ describe('TaskRepository.findOne', () => {
   });
 
   it("should find user's task", async () => {
-    const r = await findByUser(tasks[0].userId);
+    const r = await findTaskByUser(tasks[0].userId);
 
     expect(r).toHaveLength(2);
     expect(r[0].title).toBe('Test app x');
@@ -45,7 +45,7 @@ describe('TaskRepository.findOne', () => {
   });
 
   it('should return null', async () => {
-    const r = await findByUser('unexistinguser');
+    const r = await findTaskByUser('unexistinguser');
 
     expect(r).toHaveLength(0);
   });
