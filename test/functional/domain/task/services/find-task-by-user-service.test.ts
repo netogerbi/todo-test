@@ -41,7 +41,9 @@ describe('TaskServices.FindByUserService', () => {
 
     expect(r).toHaveLength(2);
     expect(r[0].title).toBe('Test app x');
+    expect(r[0].userId).toBe(userId);
     expect(r[1].title).toBe('Test app y');
+    expect(r[1].userId).toBe(userId);
   });
 
   it('should return null', async () => {
