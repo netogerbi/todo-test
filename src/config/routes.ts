@@ -5,7 +5,7 @@ import v1Routes from '../http/v1/routes';
 
 export default (app: Express): void => {
   app.get('/', async (_: Request, res: Response) => {
-    return res.status(200).json({ message: 'Gaivota Test' });
+    return res.status(200).json({ message: 'Todo Test' });
   });
 
   app.use('/login', authController);
