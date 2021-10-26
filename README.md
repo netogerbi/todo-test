@@ -22,7 +22,7 @@ The erros are handled in a centralized midleware so it's not necessary to use tr
 - [x] connect in db inside docker
 - [ ] create missing endpoints
 - [ ] pre-push husky configure
-- [ ] .github/workflows
+- [ ] install inmemory mongo and .github/workflows
 - [ ] set commit-lint to standardize commit msgs
 - [ ] adjust module alias
 
