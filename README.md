@@ -24,6 +24,7 @@ The erros are handled in a centralized midleware so it's not necessary to use tr
 - [ ] pre-push husky configure
 - [ ] .github/workflows
 - [ ] set commit-lint to standardize commit msgs
+- [ ] adjust module alias
 
 ### Instalation
 
