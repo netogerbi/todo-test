@@ -1,5 +1,12 @@
 # Todo App
 
+This is a minimal project using NodeJS, Typescript, Express from scratch.
+It uses all good pratices of a professional application including Prettier, Linters, automated tests and more.
+
+It use Husky to run scripts before commit and push to repository.
+
+It uses docker to run the application inside a container and docker-compose to run al lservices needed in a development environment.
+
 ### Tech Stack
 
 - NodeJS:14.18.1 or latest
@@ -12,6 +19,8 @@
 
 - [ ] connect in db inside docker
 - [ ] create missing endpoints
+- [ ] pre-push husky configure
+- [ ] .github/workflows
 
 ### Instalation
 
