@@ -2,28 +2,31 @@
 import { Collection } from 'mongodb';
 import { MongoHelper } from '../../../../../src/infra/db';
 import { findByUser } from '../../../../../src/domain/v1/task/repository/find-by-user';
-import { TaskCreateDTO } from '../../../../../src/domain/v1/task/dto/task-create-dto';
+import { TaskState } from '../../../../../src/domain/v1/task/model';
 
 describe('TaskRepository.findOne', () => {
   let col: Collection;
 
   const userId = 'asdasd';
 
-  const tasks: TaskCreateDTO[] = [
+  const tasks = [
     {
       description: 'Create a test application',
       title: 'Test app x',
       userId,
+      status: TaskState.TODO,
     },
     {
       description: 'Create a test application',
       title: 'Test app y',
       userId,
+      status: TaskState.TODO,
     },
     {
       description: 'Create a test application',
       title: 'Test app',
       userId: 'user2',
+      status: TaskState.TODO,
     },
   ];
 

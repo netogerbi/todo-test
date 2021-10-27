@@ -7,7 +7,7 @@ It use Husky to run scripts before commit and push to repository.
 
 It uses docker to run the application inside a container and docker-compose to run al lservices needed in a development environment.
 
-The erros are handled in a centralized midleware so it's not necessary to use try catchs.
+The erros are handled and logging is a centralized in a midleware so it's not necessary to use try catchs and loggers. Maybe just info logs are needed.
 
 ### Tech Stack
 

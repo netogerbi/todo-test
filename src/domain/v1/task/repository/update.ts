@@ -5,10 +5,11 @@ import { Task } from '../model';
 
 export const updateOne = async (taskChanges: TaskUpdateDTO): Promise<Task> => {
   const collection = await MongoHelper.getCollection('tasks');
-  const taskUpdated = await collection.findOneAndUpdate(
+
+  await collection.findOneAndUpdate(
     { _id: new ObjectId(taskChanges.id) },
     { $set: { ...taskChanges } }
   );
 
-  return MongoHelper.map<Task>(await taskUpdated.value);
+  return MongoHelper.map<Task>({ ...taskChanges, _id: taskChanges.id });
 };

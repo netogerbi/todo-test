@@ -1,20 +1,14 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { Collection, ObjectId } from 'mongodb';
+import { Collection } from 'mongodb';
 import { MongoHelper } from '../../../../../src/infra/db';
-import { findById } from '../../../../../src/domain/v1/task/repository';
+import { updateOne } from '../../../../../src/domain/v1/task/repository';
 import { TaskState } from '../../../../../src/domain/v1/task/model';
 
-describe('TaskRepository.findOne', () => {
+describe('TaskRepository.updateOne', () => {
   const tasks = [
     {
       description: 'Create a test application',
       title: 'Test app x',
-      userId: 'asdasd',
-      status: TaskState.TODO,
-    },
-    {
-      description: 'Create a test application',
-      title: 'Test app y',
       userId: 'asdasd',
       status: TaskState.TODO,
     },
@@ -31,21 +25,27 @@ describe('TaskRepository.findOne', () => {
     await col.deleteMany({});
   });
 
-  it('should find task', async () => {
-    const r = await findById(inserted.insertedIds[0].id);
+  it('should update task', async () => {
+    const r = await updateOne({
+      id: inserted.insertdIds,
+      status: TaskState.ARCHIVED,
+    });
+
+    const updated = await col.findOne(inserted.insertdIds);
 
     expect(r).toEqual(
+      expect.objectContaining({
+        id: inserted.insertdIds,
+        status: TaskState.ARCHIVED,
+      })
+    );
+
+    expect(updated).toEqual(
       expect.objectContaining({
         description: 'Create a test application',
         title: 'Test app x',
         userId: 'asdasd',
       })
     );
-  });
-
-  it('should return null', async () => {
-    const r = await findById(new ObjectId().toHexString());
-
-    expect(r).toBeNull();
   });
 });
