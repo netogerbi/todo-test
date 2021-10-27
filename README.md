@@ -20,7 +20,7 @@ The erros are handled and logging is a centralized in a midleware so it's not ne
 ### Project todos
 
 - [x] connect in db inside docker
-- [ ] create missing endpoints
+- [x] create missing endpoints
 - [ ] pre-push husky configure
 - [ ] install inmemory mongo and .github/workflows
 - [ ] set commit-lint to standardize commit msgs
