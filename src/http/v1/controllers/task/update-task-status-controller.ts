@@ -7,8 +7,9 @@ export const updateTaskStatusController = async (
   res: Response
 ): Promise<Response> => {
   const { id, status } = req.params;
+  const userId = req.user.id;
 
-  const taskInserted = await updateTaskService({ id, status });
+  const taskInserted = await updateTaskService({ id, status, userId });
 
   return res.status(200).send(taskInserted);
 };

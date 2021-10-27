@@ -1,6 +1,7 @@
 import { MongoHelper } from '../../../src/infra/db';
 import { Collection, ObjectId } from 'mongodb';
 import getToken from '../../helpers/get-token';
+import { TaskState } from '../../../src/domain/v1/task/model';
 
 describe('User.loginController', () => {
   let col: Collection;
@@ -17,16 +18,19 @@ describe('User.loginController', () => {
       description: 'Create a test application',
       title: 'Test app x',
       userId: user.id,
+      status: TaskState.TODO,
     },
     {
       description: 'Create a test application',
       title: 'Test app y',
       userId: user.id,
+      status: TaskState.TODO,
     },
     {
       description: 'Create a test application',
       title: 'Test app',
       userId: 'user2',
+      status: TaskState.TODO,
     },
   ];
 

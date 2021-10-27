@@ -1,4 +1,4 @@
-import { NotFoundError } from '../../../../utils/errors';
+import { NotFoundError, NotAuthorizedError } from '../../../../utils/errors';
 import { TaskUpdateDTO } from '../dto';
 import { Task } from '../model';
 import * as TaskRepository from '../repository';
@@ -10,6 +10,10 @@ export const updateTaskService = async (
 
   if (!taskFound) {
     throw new NotFoundError();
+  }
+
+  if (taskFound?.userId !== taskChanged.userId) {
+    throw new NotAuthorizedError();
   }
 
   return await TaskRepository.updateOne({

@@ -30,6 +30,7 @@ describe('TaskServices.updatedTaskService', () => {
     const r = await updateTaskService({
       id: inserted.insertedIds[0].toHexString(),
       status: TaskState.DONE,
+      userId: 'asdasd',
     });
 
     expect(r).toEqual(
@@ -48,6 +49,7 @@ describe('TaskServices.updatedTaskService', () => {
       await updateTaskService({
         id: new ObjectId().toHexString(),
         status: TaskState.DONE,
+        userId: 'asdasd',
       });
     } catch (err) {
       r = err as CustomError;
@@ -55,5 +57,21 @@ describe('TaskServices.updatedTaskService', () => {
 
     expect(r).toBeInstanceOf(CustomError);
     expect(r?.statusCode).toBe(404);
+  });
+
+  it('should not authorize task update - user not own it', async () => {
+    let r: CustomError | undefined;
+    try {
+      await updateTaskService({
+        id: inserted.insertedIds[0].toHexString(),
+        status: TaskState.DONE,
+        userId: 'asdasdx',
+      });
+    } catch (err) {
+      r = err as CustomError;
+    }
+
+    expect(r).toBeInstanceOf(CustomError);
+    expect(r?.statusCode).toBe(401);
   });
 });
