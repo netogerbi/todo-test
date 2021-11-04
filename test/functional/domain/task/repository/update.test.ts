@@ -29,6 +29,7 @@ describe('TaskRepository.updateOne', () => {
     const r = await updateOne({
       id: inserted.insertdIds,
       status: TaskState.ARCHIVED,
+      userId: 'asdasd',
     });
 
     const updated = await col.findOne(inserted.insertdIds);
